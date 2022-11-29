@@ -1,0 +1,66 @@
+--
+Tạo thủ tục say_hello
+	@ten nvarchar(40)
+Như 
+Bắt đầu 
+print'Xin chào'+@ten
+Kết thúc;
+//Bai1 ·
+giám đốc điều hành say_hello N'Hùng'
+--
+tạo thủ tụctinhtong
+	@s1 int, @s2 int
+như
+bắt đầu
+	khai báo@tongint;
+	đặt@tong=@s1+@s2;
+
+	print'Tổng là : '+cast(@tongasvarchar);
+kết thúc
+
+//
+GIÁM ĐỐC ĐIỀU HÀNHTINHTONG 5,6;
+--
+tạo thủ tụctongchan;
+	@n int
+như
+bắt đầu
+	khai báo@sumint, @iint;
+	bộ@sum=0;
+	bộ@i=1;
+
+	trong khi@i<=@n
+	bắt đầu 
+		nếu@i %2 = 0
+		bắt đầu 
+			đặt@sum=@sum+@i;
+			kết thúc;
+
+			Đặt@i=@i+1;
+		kết thúc;
+
+		printN'Tổng các số chẵn là : '+cast(@sumasvarchar);
+kết thúc;
+
+Giám đốc điều hànhTongchan10;
+--
+tạo thủ tụcuocchung
+	@a int, @b int
+như
+bắt đầu 
+	khai báo@tempint;
+
+	nếu@a>@b
+	bắt đầu
+		chọn@temp=@a, @a=@b, @b=@temp;
+	kết thúc
+
+	trong khi@b % @a!=0
+	bắt đầu
+		chọn@temp=@a, @a=@b % @a, @b=@temp;
+	kết thúc;
+
+	printN'Ước chung lớn nhất: '+cast(@aasvarchar);
+kết thúc;
+
+Giám đốc điều hànhUocchung 20,9;
