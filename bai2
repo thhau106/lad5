@@ -1,0 +1,54 @@
+--
+tạo thủ tục TimNhanvien
+	@MaNv nvarchar(9)
+như
+bắt đầu
+	chọn*từNHANVIENnơiMANV=@MaNv;
+kết thúc;
+
+giám đốc điều hành TimNhanvien'005';
+--
+Tạo thủ tục TongnvthamgiaDA
+@MaDa int
+như
+bắt đầu
+	chọncount(ma_nvien)as'Số lượng'from PHANCONGwhereMaDa=@MaDa;
+	kết thúc;
+
+	giám đốc điều hành[dbo]. [TongnvthamgiaDA] 1;
+--
+Tạo thủ tục ThongkeNv
+@MaDaQuốc tế, @DDiem_DANvarchar(15)
+như
+bắt đầu 
+	ChọnSố lượng (B. ma_nvien)as'Số lượng'
+		từ DEAN mộtbên trong nối PHANCONGbtrêna. MaDa = b. MADA ·
+		trong đóa. MADA = @MaDavàa. DDIEM_DA=@DDiem_DA;
+kết thúc;
+
+giám đốc điều hành[dbo]. [ThongkeNv] 1,N'Vũng tàu';
+--
+Tạo thủ tục TimnvtheoTP
+	@TrPhg nvarchar(9)
+như
+bắt đầu 
+	chọnb.*fromPHONGBAN ainner joinNHANVIEN bona. MAPHG = b. PHG
+		trong đóa. TRPHG=@TrPhgvà
+		khôngtồn tại (chọn * từTHANNHANnơiMANV = b. MANV ·)
+kết thúc;
+
+giám đốc điều hành[dbo]. [TimnvtheoTP] '005'
+--
+Tạo thủ tục KiemtraNvThuocPhong
+	@MaNV nvarchar(9), @MaPB int
+như
+bắt đầu
+	khai báo@demint;
+	chọn@dem=count(manv)từNHANVIENtrong đóMANV=@MaNVvàPHG=@MaPB;
+
+	trở về@dem;
+kết thúc;
+
+khai báo@resultint;
+exec@result=[dbo]. [KiemtraNvThuocPhong] '005',5;
+chọn@result
